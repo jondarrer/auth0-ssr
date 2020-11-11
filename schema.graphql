@@ -1,0 +1,43 @@
+schema {
+  query: Query
+}
+
+type PostInfo {
+  id: ID!
+  title: String
+  description: String
+  author: String
+  datePosted: String
+  tags: String
+  picture: String
+  language: String
+  fileName: String
+  markdown: String
+}
+
+type User {
+  id: ID!
+  givenName: String
+  familyName: String
+  nickname: String
+  fullName: String
+  picture: String
+  locale: String
+  updatedAt: String
+  email: String
+}
+
+enum AscDescOrder {
+  asc
+  desc
+}
+
+enum Language {
+  en
+  ro
+}
+
+type Query {
+  getPosts(language: Language!, dateOrder: AscDescOrder): [PostInfo]
+  getUser(): User
+}
